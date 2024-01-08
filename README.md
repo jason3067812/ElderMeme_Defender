@@ -13,5 +13,5 @@ Powered by Google Gemini
 
 ## Example
 
-![a](https://github.com/jason3067812/ElderMeme_Defender/assets/56544982/ea79efc0-2f1d-49b7-99a8-da57715715fa)
+![a](https://github.com/jason3067812/ElderMeme_Defender/assets/56544982/ea79efc0-2f1d-49b7-99a8-da57715715fa){width=50%}
 
