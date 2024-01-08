@@ -22,8 +22,8 @@ def linebot():
     body = request.get_data(as_text=True)                   
     try:
         json_data = json.loads(body)                        
-        line_bot_api = LineBotApi()
-        handler = WebhookHandler('d2aa5af2f14e6afd395a55db6dc3b8aa')                 
+        line_bot_api = LineBotApi('')
+        handler = WebhookHandler('')                 
         signature = request.headers['X-Line-Signature']      # 加入回傳的 headers
         handler.handle(body, signature)                      # 綁定訊息回傳的相關資訊
         tk = json_data['events'][0]['replyToken']            # 取得回傳訊息的 Token
