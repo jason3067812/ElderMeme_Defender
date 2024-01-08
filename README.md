@@ -4,7 +4,7 @@ This side project is designed to address the issue of elders who frequently send
 
 ## Method
 
-Powered by Google Gemini
+Powered by Google Gemini and Line Bot SDK
 
 ## Requirements
 
