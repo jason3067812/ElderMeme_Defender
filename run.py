@@ -1,16 +1,25 @@
 from flask import Flask, request
-import json
 
 # LINE Message API 
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
+import json
+
+# get all api keys
+with open("D:/api_keys/keys.json", 'r') as file:
+    data = json.load(file)
+
+channel_secret = data['LineBot']['channel secret']
+channel_access_token = data['LineBot']['channel access token']
+gemini_key = data['LLM']['gemini']
+
 # gemini
 import PIL.Image
 import google.generativeai as genai
 
-GOOGLE_API_KEY = ""
+GOOGLE_API_KEY = gemini_key
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-pro-vision')
 
@@ -22,8 +31,8 @@ def linebot():
     body = request.get_data(as_text=True)                   
     try:
         json_data = json.loads(body)                        
-        line_bot_api = LineBotApi('')
-        handler = WebhookHandler('')                 
+        line_bot_api = LineBotApi(channel_access_token)
+        handler = WebhookHandler(channel_secret)                 
         signature = request.headers['X-Line-Signature']      # 加入回傳的 headers
         handler.handle(body, signature)                      # 綁定訊息回傳的相關資訊
         tk = json_data['events'][0]['replyToken']            # 取得回傳訊息的 Token
