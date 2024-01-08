@@ -1,6 +1,6 @@
 ## Introduction
 
-This side project aims to deal with those elder who always like to send boring and duplicate meme in the group chat.
+This side project is designed to address the issue of elders who frequently send boring and repetitive memes in group chats.
 
 ## Method
 
