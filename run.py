@@ -23,7 +23,6 @@ GOOGLE_API_KEY = gemini_key
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-pro-vision')
 
-
 app = Flask(__name__)
 
 @app.route("/", methods=['POST'])
@@ -45,10 +44,10 @@ def linebot():
         elif type == 'image':
             msgID = json_data['events'][0]['message']['id']  # 取得訊息 id
             message_content = line_bot_api.get_message_content(msgID)  # 根據訊息 ID 取得訊息內容
-            with open(f'C:/Users/ee527/Downloads/line_bot/image/{msgID}.png', 'wb') as fd:
+            with open(f'save_img/{msgID}.png', 'wb') as fd:
                 fd.write(message_content.content)
                 
-            img = PIL.Image.open(f'C:/Users/ee527/Downloads/line_bot/image/{msgID}.png')
+            img = PIL.Image.open(f'save_img/{msgID}.png')
             
             prompt = "如果這是一張長輩圖,祝福圖,關心圖的話請回傳1,不是的話則回傳0"
 
